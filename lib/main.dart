@@ -69,8 +69,8 @@ class LoginPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.menu, color: theme.colorScheme.onSurface, size: 29),
-                  Icon(Icons.more_vert, color: theme.colorScheme.onSurface, size: 29),
+                  Icon(Icons.menu, color: theme.colorScheme.onSurface, size: 28),
+                  Icon(Icons.more_vert, color: theme.colorScheme.onSurface, size: 28),
                 ],
               ),
               const SizedBox(height: 60),
