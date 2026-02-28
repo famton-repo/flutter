@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Back – Sign In</title>
+  <meta name="description" content="Sign in to your account securely with email, password, or social login." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0f2f5;
+      --card: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #6b7280;
+      --border: #e5e7eb;
+      --input-bg: #f9fafb;
+      --accent: #3b4fd8;
+      --accent-hover: #2f3fbf;
+      --accent-shadow: rgba(59, 79, 216, 0.35);
+      --shadow: 0 20px 60px rgba(0,0,0,0.10);
+      --social-bg: #ffffff;
+      --social-border: #e5e7eb;
+      --social-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      --divider: #e5e7eb;
+      --toggle-bg: #e5e7eb;
+      --toggle-knob: #ffffff;
+      --transition: 0.3s ease;
+    }
+
+    body.dark {
+      --bg: #0f1117;
+      --card: #1a1d27;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border: #2d3148;
+      --input-bg: #232636;
+      --accent: #5b73ff;
+      --accent-hover: #4a62ee;
+      --accent-shadow: rgba(91, 115, 255, 0.4);
+      --shadow: 0 20px 60px rgba(0,0,0,0.5);
+      --social-bg: #232636;
+      --social-border: #2d3148;
+      --social-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      --divider: #2d3148;
+      --toggle-bg: #5b73ff;
+      --toggle-knob: #ffffff;
+    }
+
+    html, body {
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      transition: background var(--transition), color var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Ambient background blobs */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      transition: opacity var(--transition);
+    }
+    body::before {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #6c8aff, transparent);
+      top: -100px; left: -100px;
+    }
+    body::after {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #a78bfa, transparent);
+      bottom: -80px; right: -80px;
+    }
+    body.dark::before { opacity: 0.18; }
+    body.dark::after  { opacity: 0.14; }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px 80px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 48px 44px 44px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: background var(--transition), box-shadow var(--transition), border-color var(--transition);
+      animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Header */
+    .card-header { margin-bottom: 36px; }
+    .card-header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.15;
+      transition: color var(--transition);
+      letter-spacing: -0.02em;
+    }
+    .card-header p {
+      margin-top: 8px;
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      transition: color var(--transition);
+    }
+
+    /* Form */
+    .form-group { margin-bottom: 16px; position: relative; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-wrap input {
+      width: 100%;
+      padding: 14px 44px 14px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      background: var(--input-bg);
+      color: var(--text-primary);
+      font-size: 0.96rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background var(--transition), color var(--transition);
+    }
+
+    .input-wrap input::placeholder { color: var(--text-secondary); }
+
+    .input-wrap input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-shadow);
+      background: var(--card);
+    }
+
+    .input-icon {
+      position: absolute;
+      right: 14px;
+      color: var(--text-secondary);
+      pointer-events: none;
+      transition: color var(--transition);
+    }
+
+    .eye-btn {
+      position: absolute;
+      right: 14px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      padding: 0;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .eye-btn:hover { color: var(--accent); }
+
+    /* Forgot password */
+    .forgot-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+    .forgot-row a {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .forgot-row a:hover { opacity: 0.75; }
+
+    /* Sign In button */
+    .btn-signin {
+      width: 100%;
+      padding: 15px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      margin-top: 20px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px var(--accent-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-signin::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      border-radius: inherit;
+    }
+    .btn-signin:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-shadow);
+    }
+    .btn-signin:active { transform: translateY(0); }
+
+    /* Ripple */
+    .btn-signin .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: scale(0);
+      animation: ripple-anim 0.55s linear;
+      pointer-events: none;
+    }
+    @keyframes ripple-anim {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    /* Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 28px 0 22px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+      transition: background var(--transition);
+    }
+
+    /* Social buttons */
+    .social-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn-social {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 8px;
+      background: var(--social-bg);
+      border: 1.5px solid var(--social-border);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background var(--transition);
+      box-shadow: var(--social-shadow);
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-social:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+    }
+    .btn-social svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .btn-social span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+
+    /* Sign Up link */
+    .signup-link {
+      text-align: center;
+      margin-top: 26px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+    .signup-link a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .signup-link a:hover { opacity: 0.75; }
+
+    /* Dark mode toggle – bottom of screen */
+    #dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 50px;
+      padding: 8px 18px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+      z-index: 100;
+      user-select: none;
+    }
+    #dark-toggle:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+    #dark-toggle .toggle-track {
+      width: 38px; height: 22px;
+      background: var(--toggle-bg);
+      border-radius: 11px;
+      position: relative;
+      transition: background var(--transition);
+    }
+    #dark-toggle .toggle-knob {
+      width: 16px; height: 16px;
+      background: var(--toggle-knob);
+      border-radius: 50%;
+      position: absolute;
+      top: 3px; left: 3px;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), background var(--transition);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    }
+    body.dark #dark-toggle .toggle-knob { transform: translateX(16px); }
+
+    #dark-toggle .toggle-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      top: 24px;
+      left: 50%; transform: translateX(-50%) translateY(-12px);
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px var(--accent-shadow);
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      z-index: 200;
+      white-space: nowrap;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 36px 24px 32px; }
+      .card-header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert">🎉 Signing you in…</div>
+
+  <div class="page">
+    <div class="card" role="main">
+
+      <!-- Header -->
+      <div class="card-header">
+        <h1>Welcome<br>Back!</h1>
+        <p>Log in to your account</p>
+      </div>
+
+      <!-- Form -->
+      <form id="login-form" novalidate>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrap">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+            <span class="input-icon">
+              <!-- Envelope icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="4" width="20" height="16" rx="3" ry="3"/>
+                <polyline points="2,4 12,13 22,4"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="eye-btn" id="eye-btn" aria-label="Toggle password visibility">
+              <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <div class="forgot-row">
+            <a href="#" id="forgot-link">Forgot Password?</a>
+          </div>
+        </div>
+
+        <!-- Sign In -->
+        <button type="submit" class="btn-signin" id="signin-btn">Sign In</button>
+
+      </form>
+
+      <!-- Divider -->
+      <div class="divider">Or continue with</div>
+
+      <!-- Social -->
+      <div class="social-row">
+
+        <!-- Google -->
+        <button type="button" class="btn-social" id="btn-google" aria-label="Continue with Google">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <span>Google</span>
+        </button>
+
+        <!-- Facebook -->
+        <button type="button" class="btn-social" id="btn-facebook" aria-label="Continue with Facebook">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#1877F2" d="M48 24C48 10.745 37.255 0 24 0S0 10.745 0 24c0 11.979 8.776 21.908 20.25 23.708V30.938h-6.094V24H20.25v-5.344c0-6.012 3.578-9.328 9.053-9.328 2.624 0 5.372.469 5.372.469v5.906h-3.025c-2.981 0-3.91 1.85-3.91 3.747V24h6.656l-1.063 6.938H27.74V47.708C39.224 45.908 48 35.979 48 24z"/>
+          </svg>
+          <span>Facebook</span>
+        </button>
+
+        <!-- Apple -->
+        <button type="button" class="btn-social" id="btn-apple" aria-label="Continue with Apple">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M35.076 25.386c-.043-4.776 3.9-7.075 4.075-7.194-2.22-3.247-5.675-3.692-6.9-3.74-2.939-.298-5.747 1.741-7.237 1.741-1.49 0-3.793-1.703-6.237-1.657-3.196.046-6.148 1.862-7.79 4.725-3.33 5.78-.853 14.34 2.39 19.033 1.593 2.306 3.475 4.888 5.949 4.796 2.392-.098 3.295-1.537 6.185-1.537 2.89 0 3.718 1.537 6.255 1.485 2.57-.046 4.198-2.342 5.785-4.653 1.82-2.663 2.572-5.24 2.614-5.376-.057-.022-5.046-1.933-5.09-7.623zM30.357 11.36c1.323-1.606 2.212-3.831 1.969-6.046-1.904.077-4.21 1.274-5.576 2.879-1.222 1.42-2.292 3.699-2.004 5.876 2.124.164 4.287-1.096 5.611-2.709z"/>
+          </svg>
+          <span>Apple</span>
+        </button>
+
+      </div>
+
+      <!-- Sign Up Link -->
+      <p class="signup-link">
+        Don't have an account? <a href="#" id="signup-link">Sign Up</a>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <button id="dark-toggle" aria-label="Toggle dark mode">
+    <div class="toggle-track">
+      <div class="toggle-knob"></div>
+    </div>
+    <span class="toggle-label" id="toggle-label">Dark Mode</span>
+  </button>
+
+  <script>
+    // ── Dark Mode ──────────────────────────────────────────────────
+    const toggle = document.getElementById('dark-toggle');
+    const label  = document.getElementById('toggle-label');
+    let dark = false;
+
+    // Respect OS preference
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark');
+      label.textContent = 'Light Mode';
+      dark = true;
+    }
+
+    toggle.addEventListener('click', () => {
+      dark = !dark;
+      document.body.classList.toggle('dark', dark);
+      label.textContent = dark ? 'Light Mode' : 'Dark Mode';
+    });
+
+    // ── Password Eye Toggle ────────────────────────────────────────
+    const pwInput  = document.getElementById('password');
+    const eyeBtn   = document.getElementById('eye-btn');
+    const eyeIcon  = document.getElementById('eye-icon');
+
+    const eyeOpen  = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
+    const eyeClosed = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>`;
+
+    eyeBtn.addEventListener('click', () => {
+      const show = pwInput.type === 'password';
+      pwInput.type = show ? 'text' : 'password';
+      eyeIcon.innerHTML = show ? eyeClosed : eyeOpen;
+    });
+
+    // ── Toast ──────────────────────────────────────────────────────
+    function showToast(msg, duration = 2500) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), duration);
+    }
+
+    // ── Sign In Form ───────────────────────────────────────────────
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const pass  = document.getElementById('password').value;
+
+      if (!email) { showToast('⚠️ Please enter your email'); return; }
+      if (!pass)  { showToast('⚠️ Please enter your password'); return; }
+
+      const btn = document.getElementById('signin-btn');
+      btn.textContent = 'Signing in…';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        showToast('🎉 Welcome back!');
+        btn.textContent = 'Sign In';
+        btn.disabled = false;
+      }, 1800);
+    });
+
+    // ── Ripple on Sign In ──────────────────────────────────────────
+    document.getElementById('signin-btn').addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px`;
+      this.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+
+    // ── Social buttons ─────────────────────────────────────────────
+    document.getElementById('btn-google').addEventListener('click', () => showToast('🔵 Redirecting to Google…'));
+    document.getElementById('btn-facebook').addEventListener('click', () => showToast('🔵 Redirecting to Facebook…'));
+    document.getElementById('btn-apple').addEventListener('click', () => showToast('🍎 Redirecting to Apple…'));
+
+    // ── Forgot / Sign Up ───────────────────────────────────────────
+    document.getElementById('forgot-link').addEventListener('click', e => { e.preventDefault(); showToast('📧 Password reset email sent!'); });
+    document.getElementById('signup-link').addEventListener('click', e => { e.preventDefault(); showToast('📝 Sign Up coming soon!'); });
+  </script>
+</body>
+</html>
