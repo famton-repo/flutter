@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome Back – Sign In</title>
   <meta name="description" content="Sign in to your account securely with email, password, or social login." />
+  <meta name="theme-color" content="#3b4fd8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -16,10 +17,10 @@
 <body>
 
   <!-- Toast Notification -->
-  <div class="toast" id="toast" role="alert"></div>
+  <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
 
   <div class="page">
-    <div class="card" role="main">
+    <main class="card">
 
       <!-- Header -->
       <div class="card-header">
@@ -51,7 +52,8 @@
           <div class="input-wrap">
             <input type="password" id="password" name="password" placeholder="Enter your password"
               autocomplete="current-password" required />
-            <button type="button" class="eye-btn" id="eye-btn" aria-label="Toggle password visibility">
+            <button type="button" class="eye-btn" id="eye-btn" aria-label="Toggle password visibility"
+              aria-pressed="false">
               <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -115,7 +117,7 @@
         Don't have an account? <a href="#" id="signup-link">Sign Up</a>
       </p>
 
-    </div>
+    </main>
   </div>
 
   <!-- Dark Mode Toggle -->
