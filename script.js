@@ -1,12 +1,8 @@
 // ── Cached DOM References ──────────────────────────────────────
+export { }; // Declares ES module scope — fixes "Cannot redeclare" linter error
+
 const toggle = document.getElementById('dark-toggle');
 const label = document.getElementById('toggle-label');
-const pwInput = document.getElementById('password');
-const eyeBtn = document.getElementById('eye-btn');
-const eyeIcon = document.getElementById('eye-icon');
-const loginForm = document.getElementById('login-form');
-const signinBtn = document.getElementById('signin-btn');
-const toastEl = document.getElementById('toast');
 
 // ── Dark Mode ──────────────────────────────────────────────────
 // Persist preference in localStorage; fall back to OS preference
@@ -40,16 +36,13 @@ eyeBtn.addEventListener('click', () => {
 });
 
 // ── Toast Notification ─────────────────────────────────────────
-let toastTimer = null;
+let toastTimer;
 
 function showToast(msg, duration = 2500) {
     toastEl.textContent = msg;
     toastEl.classList.add('show');
-    if (toastTimer) clearTimeout(toastTimer);          // prevent overlap
-    toastTimer = setTimeout(() => {
-        toastEl.classList.remove('show');
-        toastTimer = null;
-    }, duration);
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('show'), duration);
 }
 
 // ── Sign In Form Validation & Submit ──────────────────────────
@@ -59,14 +52,15 @@ loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value.trim();
     const pass = pwInput.value;
+    const validationError =
+        !email ? '⚠️ Please enter your email' :
+            !EMAIL_RE.test(email) ? '⚠️ Please enter a valid email' :
+                !pass ? '⚠️ Please enter your password' : null;
 
-    if (!email) { showToast('⚠️ Please enter your email'); return; }
-    if (!EMAIL_RE.test(email)) { showToast('⚠️ Please enter a valid email'); return; }
-    if (!pass) { showToast('⚠️ Please enter your password'); return; }
+    if (validationError) { showToast(validationError); return; }
 
     signinBtn.textContent = 'Signing in…';
     signinBtn.disabled = true;
-
     setTimeout(() => {
         showToast('🎉 Welcome back!');
         signinBtn.textContent = 'Sign In';
@@ -93,15 +87,17 @@ const SOCIAL_TOASTS = {
 };
 
 Object.entries(SOCIAL_TOASTS).forEach(([id, msg]) => {
-    document.getElementById(id).addEventListener('click', () => showToast(msg));
+    document.getElementById(id)?.addEventListener('click', () => showToast(msg));
 });
 
 // ── Forgot Password / Sign Up ──────────────────────────────────
-document.getElementById('forgot-link').addEventListener('click', e => {
-    e.preventDefault();
-    showToast('📧 Password reset email sent!');
-});
-document.getElementById('signup-link').addEventListener('click', e => {
-    e.preventDefault();
-    showToast('📝 Sign Up coming soon!');
+const LINK_TOASTS = {
+    'forgot-link': '📧 Password reset email sent!',
+    'signup-link': '📝 Sign Up coming soon!',
+};
+Object.entries(LINK_TOASTS).forEach(([id, msg]) => {
+    document.getElementById(id)?.addEventListener('click', e => {
+        e.preventDefault();
+        showToast(msg);
+    });
 });
