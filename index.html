@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome Back – Sign In</title>
+  <meta name="description" content="Sign in to your account securely with email, password, or social login." />
+  <meta name="theme-color" content="#3b4fd8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="alert"></div>
+
+  <div class="page">
+    <div class="card" role="main">
+
+      <!-- Header -->
+      <div class="card-header">
+        <h1>Welcome<br>Back!</h1>
+        <p>Log in to your account</p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" novalidate>
+
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrap">
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            <span class="input-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="4" width="20" height="16" rx="3" ry="3" />
+                <polyline points="2,4 12,13 22,4" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="password" name="password" placeholder="Enter your password"
+              autocomplete="current-password" required />
+            <button type="button" class="eye-btn" id="eye-btn" aria-label="Toggle password visibility">
+              <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </button>
+          </div>
+          <div class="forgot-row">
+            <a href="#" id="forgot-link">Forgot Password?</a>
+          </div>
+        </div>
+
+        <!-- Sign In Button -->
+        <button type="submit" class="btn-signin" id="signin-btn">Sign In</button>
+
+      </form>
+
+      <!-- Divider -->
+      <div class="divider">Or continue with</div>
+
+      <!-- Social Login Buttons -->
+      <div class="social-row">
+
+        <!-- Google -->
+        <button type="button" class="btn-social" id="btn-google" aria-label="Continue with Google">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335"
+              d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+            <path fill="#4285F4"
+              d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+            <path fill="#FBBC05"
+              d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+            <path fill="#34A853"
+              d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+          </svg>
+          <span>Google</span>
+        </button>
+
+        <!-- Facebook -->
+        <button type="button" class="btn-social" id="btn-facebook" aria-label="Continue with Facebook">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#1877F2"
+              d="M48 24C48 10.745 37.255 0 24 0S0 10.745 0 24c0 11.979 8.776 21.908 20.25 23.708V30.938h-6.094V24H20.25v-5.344c0-6.012 3.578-9.328 9.053-9.328 2.624 0 5.372.469 5.372.469v5.906h-3.025c-2.981 0-3.91 1.85-3.91 3.747V24h6.656l-1.063 6.938H27.74V47.708C39.224 45.908 48 35.979 48 24z" />
+          </svg>
+          <span>Facebook</span>
+        </button>
+
+        <!-- Apple -->
+        <button type="button" class="btn-social" id="btn-apple" aria-label="Continue with Apple">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor"
+              d="M35.076 25.386c-.043-4.776 3.9-7.075 4.075-7.194-2.22-3.247-5.675-3.692-6.9-3.74-2.939-.298-5.747 1.741-7.237 1.741-1.49 0-3.793-1.703-6.237-1.657-3.196.046-6.148 1.862-7.79 4.725-3.33 5.78-.853 14.34 2.39 19.033 1.593 2.306 3.475 4.888 5.949 4.796 2.392-.098 3.295-1.537 6.185-1.537 2.89 0 3.718 1.537 6.255 1.485 2.57-.046 4.198-2.342 5.785-4.653 1.82-2.663 2.572-5.24 2.614-5.376-.057-.022-5.046-1.933-5.09-7.623zM30.357 11.36c1.323-1.606 2.212-3.831 1.969-6.046-1.904.077-4.21 1.274-5.576 2.879-1.222 1.42-2.292 3.699-2.004 5.876 2.124.164 4.287-1.096 5.611-2.709z" />
+          </svg>
+          <span>Apple</span>
+        </button>
+
+      </div>
+
+      <!-- Sign Up Link -->
+      <p class="signup-link">
+        Don't have an account? <a href="#" id="signup-link">Sign Up</a>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <button id="dark-toggle" aria-label="Toggle dark mode">
+    <div class="toggle-track">
+      <div class="toggle-knob"></div>
+    </div>
+    <span class="toggle-label" id="toggle-label">Dark Mode</span>
+  </button>
+
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
