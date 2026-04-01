@@ -25,7 +25,7 @@ class _SVTUserDataState extends State<SVTUserData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fetch User Data'),
+        title: Text('Fetch User Data '),
         backgroundColor: Colors.green,
       ),
       body: Center(
