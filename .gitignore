@@ -5,6 +5,7 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
@@ -28,40 +29,49 @@ migrate_working_dir/
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
-.packages
 .pub-cache/
 .pub/
 /build/
-build/
-coverage/
-
-# Android related
-/android/app/debug
-/android/app/profile
-/android/app/release
-/android/.gradle
-/android/captures/
-/android/local.properties
-/android/key.properties
-
-# iOS / macOS related
-**/ios/Flutter/Flutter.podspec
-**/ios/Pods/
-**/ios/.symlinks/
-**/ios/Flutter/Flutter.framework
-**/ios/Flutter/App.framework
-**/macos/Flutter/ephemeral/
-**/macos/Flutter/FlutterPluginRegistrant/
-**/macos/Pods/
-
-# Windows related
-**/windows/flutter/ephemeral/
-
-# Linux related
-**/linux/flutter/ephemeral/
+/coverage/
 
 # Symbolication related
 app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# iOS related
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/app.framework
+ios/Flutter/flutter_export_environment.sh
+ios/Pods/
+.last_build_id
+
+# Android related
+android/local.properties
+android/gen/
+android/bin/
+android/app/src/main/res/values/generated.xml
+*.apk
+*.aab
+*.keystore
+!debug.keystore
+
+# macOS related
+macos/Flutter/ephemeral/
+
+# Windows related
+windows/flutter/ephemeral/
+
+# Linux related
+linux/flutter/ephemeral/
