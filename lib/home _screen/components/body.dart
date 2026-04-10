@@ -33,4 +33,10 @@ class _CategoriesStates extends State<Categories> {
     'Iced Teas',
     'Specials',
   ];
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    throw UnimplementedError();
+  }
 }
