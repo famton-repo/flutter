@@ -23,7 +23,7 @@ List<Coffee> coffeeList = [
     description:
         'Espresso shots topped with hot water create a light layer ofcrema culminating in ',
     price: 3.99,
-    image: 'assets/images/coffee_0.png',
+    image: 'assets/images/coffee.png',
     bgColor: Color(0xFFCE9034),
   ),
   Coffee(
@@ -32,7 +32,7 @@ List<Coffee> coffeeList = [
     description:
         " Light roast coffee that’s soft, mellow and flavorful. Easy-drinking on its own or with room for milk and sugar.",
     price: 3.59,
-    image: 'assets/images/coffee_1.png',
+    image: 'assets/images/coffee-cup.png',
     bgColor: Color(0xFF3D82AE),
   ),
   Coffee(
@@ -41,7 +41,7 @@ List<Coffee> coffeeList = [
     description:
         " Our smooth signature Espresso Roast With rich flaver and caramelly aweetness is at the heart of our signature roasts",
     price: 4.99,
-    image: 'assets/images/coffee_2.png',
+    image: 'assets/images/tea-cup.png',
     bgColor: Color(0xFFCE9034),
   ),
   Coffee(
@@ -50,6 +50,7 @@ List<Coffee> coffeeList = [
     description:
         'Cold Brew topped with lightly sweet cinnamon ,venilla syrup and almontmilk cold foam ',
     price: 4.49,
+    image: 'assets/images/frappe.png',
     bgColor: Color(0xFF3D6356),
   ),
   Coffee(
@@ -58,6 +59,7 @@ List<Coffee> coffeeList = [
     description:
         " Lightly roasted coffee that’s soft, mellow and flavorful Easy-drinking on its own or with room for milk and sugar. ",
     price: 3.59,
+    image: 'assets/images/coffee-cup-1.png',
     bgColor: Color(0xFFDB657F),
   ),
   Coffee(
@@ -66,7 +68,7 @@ List<Coffee> coffeeList = [
     description:
         " Our smooth signature Espresso Roast With rich flaver and caramelly aweetness is at the heart of our signature roasts  ",
     price: 4.49,
+    image: 'assets/images/take-away.png',
     bgColor: Color(0xFFC1E394),
-    image: 'assets/images/coffee_5.png',
   ),
 ];
