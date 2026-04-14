@@ -1,3 +1,4 @@
+import 'package:famton_app/details_screen/details_screen.dart';
 import 'package:famton_app/models/Coffee.dart';
 import 'package:flutter/material.dart';
 import 'package:famton_app/home _screen/components/coffee_card.dart';
@@ -20,8 +21,16 @@ class Body extends StatelessWidget {
               child: ListView.builder(
                 itemCount: coffeeList.length,
                 scrollDirection: Axis.vertical,
-                itemBuilder: (context, index) =>
-                    CoffeeCard(coffee: coffeeList[index]),
+                itemBuilder: (context, index) => CoffeeCard(
+                  coffee: coffeeList[index],
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          DetailsScreen(coffee: coffeeList[index]),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
