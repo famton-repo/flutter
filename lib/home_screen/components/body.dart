@@ -1,6 +1,7 @@
+import 'package:famton_app/home_screen/components/coffee_card.dart';
+import 'package:famton_app/models/coffee.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_1/home_screen/components/coffee_card.dart';
-import 'package:flutter_1/models/coffee.dart';
+import 'package:famton_app/detail_screen/detail_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -8,33 +9,39 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color:color(0*FF00704A),
-      child:padding(
-        padding:const EdgeInsets.all(8.0),
-      child:Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "It's a great day for coffee!",
-            style: TextStyle(fontSize:25.0)
+      color: Color(0xFF00704A),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "It's a great day for coffee!",
+              style: TextStyle(fontSize: 25.0),
+            ),
+            Categories(),
+            Expanded(
+              child: ListView.builder(
+                itemCount: coffeeList.length,
+                scrollDirection: Axis.vertical,
+                itemBuilder: (context, index) => CoffeeCard(
+                  coffee: coffeeList[index],
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          DetailScreen(coffee: coffeeList[index]),
+                    ),
+                  ),
+                ),
               ),
-              Categories(),
-              Expanded(
-                child:ListView.builder(
-                  itemCount:coffeeList.length,
-                  scrollDirection:Axis.vertical,
-                  itemBuilder:(context,index)=>CoffeeCard(
-                    coffee:coffeeList[index],
-                  )
-                )
-              )
-        ],
-    ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
 
 class Categories extends StatefulWidget {
   const Categories({super.key});
@@ -51,47 +58,49 @@ class _CategoriesState extends State<Categories> {
     "Hot Drinks",
     "Iced teas",
     "Specials",
-    ];
-    int selectedIndex = 0;
+  ];
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height:75.0,
-      child:ListView.builder(
+      height: 75.0,
+      child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
-        itemBuilder: (context,index)=>buildCategory(index),
-        
+        itemBuilder: (context, index) => buildCategory(index),
       ),
     );
   }
 
-  Widget buildCategory(int index){
+  Widget buildCategory(int index) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         setState(() {
           selectedIndex = index;
         });
       },
-      child:Padding(
-        padding:const EdgeInsets.fromLTRB(0.0,20.0,15.0,0.0),
-        child:Column(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0.0, 20.0, 15.0, 0.0),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding:const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
-                color:
-                selectedIndex == index ? Colors.white : Colors.transparent,
+                color: selectedIndex == index
+                    ? Colors.white
+                    : Colors.transparent,
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
-            ),
-            child: Text(
-              categories[index],
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 15.0,
-                color: selectedIndex == index ? Colors.black : Colors(0*FF27251F),
+              child: Text(
+                categories[index],
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.0,
+                  color: selectedIndex == index
+                      ? Colors.black
+                      : Color(0xFF27251F),
+                ),
               ),
             ),
           ],
