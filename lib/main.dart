@@ -1,7 +1,7 @@
+import 'package:famton_app/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_1/home_screen/home_screen.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:"Coffee Shop",
+      title: "Coffee Shop",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -21,4 +21,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
