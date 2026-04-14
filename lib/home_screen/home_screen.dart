@@ -1,4 +1,4 @@
-import 'package:famton_app/homescreen/components/body.dart';
+import 'package:famton_app/home_screen/components/body.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:famton_app/homescreen/home_screen.dart';
+import 'package:famton_app/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 class Coffee {
-  final String image, name, description;
   final int id;
+  final String name;
+  final String description;
+  final String image;
   final double price;
   final Color bgColor;
+  
 
   Coffee({
-    this.image = '',
-    this.name = '',
-    this.description = '',
-    this.id = 0,
-    this.price = 0.0,
-    this.bgColor = Colors.transparent,
+   required this.id,
+   required this.name,
+   required this.description,
+    required this.image,
+    required this.price,
+   required this.bgColor,
   });
 }
 
@@ -53,7 +56,7 @@ Coffee(
     name:'Cold Brew',
     description:'Cold Brew topped with lightly sweet cinnamon,vanilla syrup and almondamilk cold foam',
     price:5.99,
-    image:'assets/images025-frappe.png',
+    image:'assets/images/025-frappe.png',
     bgColor: Color(0xFFC980F2),
      
 
@@ -61,13 +64,13 @@ Coffee(
 Coffee(
     id:4,
     name:'Nitro Cold Brew',
-    description:'Lightly roasted coffee that's soft, mellow and flavorful.Easy-drinking on its own or with room for cream and sugar',
+    description:'Lightly roasted coffee that's soft, mellow and flavorful.Easy-drinking on its own or with room, image: 'assets/images/025-frappe.png', price:3.59, bgColor: Color(0xFFDB657F) for cream and sugar'),
     price:3.59,
     image:'assets/images/013-coffee-cup.png',
     bgColor: Color(0xFFDB657F),
      
-
   ),
+
 Coffee(
     id:5,
     name:'Espresso',
@@ -77,7 +80,7 @@ Coffee(
     bgColor: Color(0xFFC1E394),
      
 
-  )
+  ),
 
 
 ];

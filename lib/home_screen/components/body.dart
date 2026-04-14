@@ -1,7 +1,11 @@
 import 'package:famton_app/models/coffee.dart';
 import 'package:flutter/material.dart';
+import 'package:famton_app/home_screen/components/coffee_card.dart';
+
+
 
 class Body extends StatelessWidget {
+  const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
