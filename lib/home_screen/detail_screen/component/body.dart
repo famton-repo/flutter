@@ -28,7 +28,7 @@ class Body extends StatelessWidget {
                 height: 200,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white.withOpacity(0.15),
+                  color: Colors.white.withValues(alpha: 0.15),
                 ),
               ),
               Image.asset(
@@ -40,8 +40,8 @@ class Body extends StatelessWidget {
           ),
         ),
 
-        // Details card
-        Expanded(
+        // Details card — fills remaining space given by Scaffold.body
+        Flexible(
           child: Container(
             width: double.infinity,
             decoration: const BoxDecoration(

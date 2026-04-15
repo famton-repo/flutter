@@ -26,7 +26,7 @@ List<Coffee> coffeeList = [
         'Espresso shot topped with hot water create a light layer of crema culminating in a rich and complex flavor profile',
     price: 3.99,
     image: 'assets/images/008-coffee.png',
-    bgColor: Color(0xFFCE9034),
+    bgColor: const Color(0xFFCE9034),
   ),
   Coffee(
     id: 1,
@@ -36,7 +36,7 @@ List<Coffee> coffeeList = [
 
     price: 3.59,
     image: 'assets/images/014-coffee-cup.png',
-    bgColor: Color(0xFF3D82AE),
+    bgColor: const Color(0xFF3D82AE),
   ),
   Coffee(
     id: 2,
@@ -45,7 +45,7 @@ List<Coffee> coffeeList = [
         'Our smooth signature Espresso Roast with rich flavor and caramelly is at the heart of everything we do',
     price: 4.49,
     image: 'assets/images/044-tea-cup.png',
-    bgColor: Color(0xFF3D6356),
+    bgColor: const Color(0xFF3D6356),
   ),
   Coffee(
     id: 3,
@@ -54,7 +54,7 @@ List<Coffee> coffeeList = [
         'Cold Brew topped with lightly sweet cinnamon,vanilla syrup and almondamilk cold foam',
     price: 5.99,
     image: 'assets/images/025-frappe.png',
-    bgColor: Color(0xFFC980F2),
+    bgColor: const Color(0xFFC980F2),
   ),
   Coffee(
     id: 4,
@@ -63,16 +63,16 @@ List<Coffee> coffeeList = [
         'Lightly roasted coffee thats soft, mellow and flavorful.Easy-drinking on its own or with room',
     price: 3.59,
     image: 'assets/images/013-coffee-cup.png',
-    bgColor: Color(0xFFDB657F),
+    bgColor: const Color(0xFFDB657F),
   ),
 
   Coffee(
     id: 5,
-    name: 'Espresso',
+    name: 'Café Latte',
     description:
-        'Our smooth signature Espresso Roast with rich flavor and caramelly is at the heart of everything we do',
+        'A classic combination of our rich espresso with steamed whole milk and a light layer of foam for a smooth, creamy finish.',
     price: 4.49,
-    image: 'assets/images/014-take-away-cup.png',
-    bgColor: Color(0xFFC1E394),
+    image: 'assets/images/010-take-away.png',
+    bgColor: const Color(0xFFC1E394),
   ),
 ];

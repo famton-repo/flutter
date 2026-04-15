@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:famton_app/models/coffee.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:famton_app/home_screen/detail_screen/component/body.dart';
+import 'package:famton_app/home_screen/detail_screen/component/body.dart'
+    as detail;
 
 class DetailScreen extends StatelessWidget {
   final Coffee coffee;
@@ -24,15 +25,15 @@ class DetailScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Body(coffee: coffee),
+      body: detail.Body(coffee: coffee),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: const Color(0xFF00704A),
-        onPressed: () {},
-        icon: const FaIcon(FontAwesomeIcons.cartShopping, color: Colors.white),
-        label: const Text(
-          'Add to Cart',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
+        onPressed: () {
+           Navigator.pop(context);
+           print('Added ' + coffee.name + ' to cart');
+        },
+        label: Text('Add to cart (\$${coffee.price})', style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        icon: const FaIcon(FontAwesomeIcons.mugHot, color: Colors.white),
+        backgroundColor: coffee.bgColor,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

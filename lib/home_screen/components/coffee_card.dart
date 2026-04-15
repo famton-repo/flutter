@@ -5,8 +5,7 @@ class CoffeeCard extends StatelessWidget {
   final Coffee coffee;
   final VoidCallback press;
 
-  const CoffeeCard({Key? key, required this.coffee, required this.press})
-      : super(key: key);
+  const CoffeeCard({super.key, required this.coffee, required this.press});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class CoffeeCard extends StatelessWidget {
                   width: 70,
                   height: 70,
                   decoration: BoxDecoration(
-                    color: coffee.bgColor.withOpacity(0.2),
+                    color: coffee.bgColor.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(

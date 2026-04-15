@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:famton_app/models/coffee.dart';
 
 class Main extends StatelessWidget {
-  const Main({Key? key, required this.coffee}) : super(key: key);
+  const Main({super.key, required this.coffee});
   final Coffee coffee;
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class Main extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(30.0),
                   child: Hero(
-                    tag: '${coffee.id}',
+                    tag: coffee.id.toString(),
                     child: Image.asset(coffee.image, fit: BoxFit.cover),
                   ),
                 ),
