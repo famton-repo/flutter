@@ -6,41 +6,66 @@ class CoffeeCard extends StatelessWidget {
   final VoidCallback press;
 
   const CoffeeCard({Key? key, required this.coffee, required this.press})
-    : super(key: key);
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Divider(color: coffee.id != 0 ? Colors.black26 : Colors.transparent),
-          GestureDetector(
-            onTap: press,
+    return Column(
+      children: [
+        if (coffee.id != 0)
+          const Divider(color: Colors.black26, height: 1),
+        GestureDetector(
+          onTap: press,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
             child: Row(
               children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(coffee.image, width: 60.0),
-                    ),
-                  ],
+                // Coffee image with colored background
+                Container(
+                  width: 70,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: coffee.bgColor.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(coffee.image, fit: BoxFit.contain),
+                  ),
                 ),
+                const SizedBox(width: 14),
+                // Coffee info
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        coffee.name,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '\$${coffee.price.toStringAsFixed(2)}',
+                        style: const TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.white70,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // Arrow icon
+                const Icon(Icons.arrow_forward_ios,
+                    color: Colors.white54, size: 16),
               ],
             ),
           ),
-          SizedBox(width: 30.0),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(coffee.name, style: TextStyle(fontSize: 18.0)),
-                Text("\$${coffee.price}"),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

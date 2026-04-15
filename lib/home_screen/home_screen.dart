@@ -6,19 +6,20 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF00704A),
+        backgroundColor: const Color(0xFF00704A),
         elevation: 0.0,
+        iconTheme: const IconThemeData(color: Colors.white),
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 12, 0),
             child: IconButton(
-              icon: Icon(Icons.person, size: 30),
-              onPressed: () => {},
+              icon: const Icon(Icons.person, size: 30, color: Colors.white),
+              onPressed: () {},
             ),
           ),
         ],
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }
