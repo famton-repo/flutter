@@ -1,4 +1,7 @@
+import 'package:famton_app/models/coffee.dart';
 import 'package:flutter/material.dart';
+import 'package:famton_app/detail_screen/components/main.dart';
+import 'package:famton_app/detail_screen/components/small_medium_large.dart';
 
 class Body extends StatelessWidget {
   final Coffee coffee;
@@ -6,6 +9,43 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Size size = MediaQuery.of(context).size;
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: size.height,
+            child: Stack(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: size.height * 0.3),
+                  padding: EdgeInsets.only(
+                    top: size.height * 0.2,
+                    left: 20.0,
+                    right: 20.0,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.0),
+                      topRight: Radius.circular(20.0),
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(coffee.description),
+                      SizedBox(height: 20.0),
+                      SizePicker(),
+                    ],
+                  ),
+                ),
+                Main(coffee: coffee),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
