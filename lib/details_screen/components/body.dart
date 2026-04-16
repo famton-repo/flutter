@@ -19,7 +19,7 @@ class Body extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: size.height * 0.3),
                   padding: EdgeInsets.only(
-                    top: size.height * 0.2,
+                    top: size.height * 0.12,
                     left: 20,
                     right: 20,
                   ),
@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(coffee.description),
-                      SizedBox(height: 20.0),
+                      SizedBox(height: 10.0),
                       sizePicker(),
                     ],
                   ),
