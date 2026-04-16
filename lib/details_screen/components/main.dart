@@ -12,6 +12,46 @@ class Main extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Hot', style: TextStyle(fontSize: 16, color: Colors.white)),
+          Text(
+            coffee.name,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0,
+            ),
+          ),
+          //    SizedBox(height: 20.0),
+          Row(
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'price\n',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    TextSpan(
+                      text: '\$${coffee.price}',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Hero(
+                    tag: '${coffee.id}',
+                    child: Image.asset(coffee.image, fit: BoxFit.fill),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

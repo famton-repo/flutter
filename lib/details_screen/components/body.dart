@@ -1,4 +1,5 @@
 import 'package:famton_app/details_screen/components/main.dart';
+import 'package:famton_app/details_screen/components/small_medium_large.dart';
 import 'package:flutter/material.dart';
 import 'package:famton_app/models/Coffee.dart';
 
@@ -28,6 +29,14 @@ class Body extends StatelessWidget {
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
                     ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(coffee.description),
+                      SizedBox(height: 20.0),
+                      sizePicker(),
+                    ],
                   ),
                 ),
                 Main(coffee: coffee),
