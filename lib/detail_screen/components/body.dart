@@ -1,3 +1,5 @@
+import 'package:famton_app/detail_screen/components/counter.dart';
+import 'package:famton_app/detail_screen/components/dropdown.dart';
 import 'package:famton_app/models/coffee.dart';
 import 'package:flutter/material.dart';
 import 'package:famton_app/detail_screen/components/main.dart';
@@ -20,7 +22,7 @@ class Body extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(top: size.height * 0.3),
                   padding: EdgeInsets.only(
-                    top: size.height * 0.2,
+                    top: size.height * 0.12,
                     left: 20.0,
                     right: 20.0,
                   ),
@@ -37,6 +39,41 @@ class Body extends StatelessWidget {
                       Text(coffee.description),
                       SizedBox(height: 20.0),
                       SizePicker(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Number of' + coffee.name + '\$:'),
+                          Counter(),
+                        ],
+                      ),
+                      SizedBox(height: 20.0),
+                      Text(
+                        'Customizations',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 20.0),
+                      ),
+                      SizedBox(height: 15.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Number Of Sugar Packs:'),
+                          DropDown(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Pumps Of Creamer:'),
+                          DropDown(),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Pumps Of Wiped Cream:'),
+                          DropDown(),
+                        ],
+                      ),
                     ],
                   ),
                 ),

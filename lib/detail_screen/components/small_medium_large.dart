@@ -45,6 +45,21 @@ class _SizePickerState extends State<SizePicker> {
                     ? Color(0XFFE1E4E8)
                     : Colors.transparent,
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                border: Border(
+                  top: BorderSide(width: 1.0, color: Color(0XFFE1E4E8)),
+                  bottom: BorderSide(width: 1.0, color: Color(0XFFE1E4E8)),
+                  left: BorderSide(width: 1.0, color: Color(0XFFE1E4E8)),
+                  right: BorderSide(width: 1.0, color: Color(0XFFE1E4E8)),
+                ),
+              ),
+              child: Text(
+                sizes[index],
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color:
+                      selectedIndex == index ? Colors.black : Color(0XFF27251F),
+                ),
               ),
             ),
           ],
