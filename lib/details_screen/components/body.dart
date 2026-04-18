@@ -1,3 +1,5 @@
+import 'package:famton_app/details_screen/components/counter.dart';
+import 'package:famton_app/details_screen/components/dropdown.dart';
 import 'package:famton_app/details_screen/components/main.dart';
 import 'package:famton_app/details_screen/components/small_medium_large.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +38,32 @@ class Body extends StatelessWidget {
                       Text(coffee.description),
                       SizedBox(height: 10.0),
                       sizePicker(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Number of' + coffee.name + '\$:'),
+                          Counter(),
+                        ],
+                      ),
+                      SizedBox(height: 20.0),
+                      Text(
+                        'Customizations',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 20.0),
+                      ),
+                      SizedBox(height: 15.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [Text('Number of sugar backs:'), Dropdown()],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [Text('pumps ofcreamer:'), Dropdown()],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [Text('pumps of whipped cream:'), Dropdown()],
+                      ),
                     ],
                   ),
                 ),
