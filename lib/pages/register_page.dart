@@ -1,33 +1,20 @@
 import 'package:famton_app/components/my_button.dart';
 import 'package:famton_app/components/my_textfiled.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final VoidCallback onTap;
-
-  const LoginPage({super.key, required this.onTap});
+  const RegisterPage({super.key, required this.onTap});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
-
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  //login method
-  void login() {
-    /*
-fill out authentication here...
-    */
-
-    //navigate to home page
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const HomePage()),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +33,7 @@ fill out authentication here...
             const SizedBox(height: 25),
             // message, app slogan
             Text(
-              "Food Delivery App",
+              "Let's Create An Account",
               style: TextStyle(
                 fontSize: 16,
                 color: Theme.of(context).colorScheme.primary,
@@ -68,16 +55,22 @@ fill out authentication here...
               obsecureText: true,
             ),
             const SizedBox(height: 10),
-            // Login Button
-            MyButton(onTap: login, text: "Sign In"),
+            MyTextField(
+              controller: confirmPasswordController,
+              hintText: "Confirm Password",
+              obsecureText: true,
+            ),
+            const SizedBox(height: 25),
+            // Sign up Button
+            MyButton(onTap: () {}, text: "Sign Up"),
 
             const SizedBox(height: 25),
-            // Register Button
+            // Already Register Button
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Not A Member?",
+                  "Already have an account?",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
@@ -86,7 +79,7 @@ fill out authentication here...
                 GestureDetector(
                   onTap: widget.onTap,
                   child: Text(
-                    "Register Now",
+                    "Login Now",
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.primary,
                       fontWeight: FontWeight.bold,

@@ -1,6 +1,6 @@
+import 'package:famton_app/auth/login_or_register.dart';
 import 'package:famton_app/themes/theme_provider.dart';
 import 'package:flutter/material.dart';
-import 'pages/login_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: const LoginOrRegister(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
