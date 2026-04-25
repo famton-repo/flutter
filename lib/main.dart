@@ -1,10 +1,15 @@
+import 'package:famton_app/themes/theme_provider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import 'pages/login_pages.dart';
 
-
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,9 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:const Login_page(),
+      home: Login_page(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
 }

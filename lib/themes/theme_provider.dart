@@ -1,6 +1,6 @@
+import 'package:famton_app/themes/dark_mode.dart';
+import 'package:famton_app/themes/light_mode.dart';
 import 'package:flutter/material.dart';
-import 'package:foodorder/themes/dark_mode.dart';
-import 'package:foodorder/themes/light_mode.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeData _themeData = lightMode;
