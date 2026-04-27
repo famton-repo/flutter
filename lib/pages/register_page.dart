@@ -1,19 +1,21 @@
 import 'package:famton_app/components/my_button.dart';
-import 'package:flutter/material.dart';
 import 'package:famton_app/components/my_textfield.dart';
+import 'package:flutter/material.dart';
 
-class Login_page extends StatelessWidget {
+class ResisterPage extends StatefulWidget {
   final void Function()? onTap;
+  const ResisterPage({super.key, required this.onTap});
+
+  @override
+  State<ResisterPage> createState() => _ResisterPageState();
+}
+
+class _ResisterPageState extends State<ResisterPage> {
   // text edting controller
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
- Login_page({
-  super.key,
- required this.onTap
- }
- );
-
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,7 @@ class Login_page extends StatelessWidget {
             ),
             const SizedBox(height: 25),
             Text(
-              "Food Delivery App",
+              "Let's create an account for you",
               style: TextStyle(
                 fontSize: 16,
                 color: Theme.of(context).colorScheme.inversePrimary,
@@ -50,30 +52,33 @@ class Login_page extends StatelessWidget {
               obsecureText: true,
             ),
             const SizedBox(height: 10),
+            // confirm password textfield
+            MyTextField(
+              controller: confirmPasswordController,
+              hintText: "Confirm Password",
+              obsecureText: true,
+            ),
+            const SizedBox(height: 10),
             MyButton(
-              text: "sign in",
+              text: "sign up",
               onTap: () => {},
-
             ),
             const SizedBox(height: 25),
-            Row(
-              mainAxisAlignment:MainAxisAlignment.center,
-              children:[
-                Text("Not a member?",style: TextStyle(
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                "Already have an account?",
+                style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
-                ),
-         const SizedBox(width: 4),
-                Text("Register now",
+              ),
+              Text(
+                "Login now",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                   fontWeight: FontWeight.bold,
                 ),
-                )
-              ]
-
-
-            ),
+              )
+            ]),
             //message
           ],
         ),
