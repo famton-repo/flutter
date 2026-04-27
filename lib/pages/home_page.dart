@@ -1,3 +1,4 @@
+import 'package:famton_app/components/my_drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,6 +11,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("Home")));
+    return Scaffold(
+      appBar: AppBar(title: Text("Home")),
+      drawer: MyDrawer(),
+    );
   }
 }
