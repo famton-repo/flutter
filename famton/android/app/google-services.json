@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "621073247230",
+    "project_id": "fooddeliverytute-14fc7",
+    "storage_bucket": "fooddeliverytute-14fc7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621073247230:android:30ef644fc8583d63932eaf",
+        "android_client_info": {
+          "package_name": "com.example.famton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621073247230-9hbfa4et6n5caqed7q0q059njjpp88v2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHcKGW-S2w-2dPEz14JceJfdBT0PkDPaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621073247230-9hbfa4et6n5caqed7q0q059njjpp88v2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "621073247230-1cu5iu2mr3ve567ljep927ekh2gvnfkc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.famtonApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621073247230:android:7c8fc356960361b4932eaf",
+        "android_client_info": {
+          "package_name": "com.example.famton_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621073247230-9hbfa4et6n5caqed7q0q059njjpp88v2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHcKGW-S2w-2dPEz14JceJfdBT0PkDPaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621073247230-9hbfa4et6n5caqed7q0q059njjpp88v2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "621073247230-1cu5iu2mr3ve567ljep927ekh2gvnfkc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.famtonApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
