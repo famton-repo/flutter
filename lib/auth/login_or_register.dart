@@ -1,6 +1,6 @@
 import 'package:famton_app/pages/login_pages.dart';
 import 'package:flutter/material.dart';
-import'package:famton_app/pages/register_page.dart';
+import 'package:famton_app/pages/register_page.dart';
 
 class LoginOrRegister extends StatefulWidget {
   const LoginOrRegister({super.key});
@@ -26,7 +26,7 @@ class _LoginOrRegisterState extends State<LoginOrRegister> {
     if (showLoginPage) {
       return Login_page(onTap: togglePages);
     } else {
-      return RegisterPages(onTap: togglePages);
+      return ResisterPage(onTap: togglePages);
     }
   }
 }

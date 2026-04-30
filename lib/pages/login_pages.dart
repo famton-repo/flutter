@@ -1,12 +1,26 @@
 import 'package:famton_app/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:famton_app/components/my_textfield.dart';
+import 'package:famton_app/pages/home_page.dart';
 
 class Login_page extends StatelessWidget {
   final void Function()? onTap;
   // text edting controller
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+// login method
+void Login() {
+  if (emailController.text == "[EMAIL_ADDRESS]" && passwordController.text == "123456") {
+    print("Login Success");
+  } else {
+    print("Login Failed");
+  }
+}
+ // navigate to home page
+ void navigateToHomePage(BuildContext context) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+} 
 
  Login_page({
   super.key,
@@ -49,10 +63,10 @@ class Login_page extends StatelessWidget {
               hintText: "Password",
               obsecureText: true,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 25),
             MyButton(
               text: "sign in",
-              onTap: () => {},
+              onTap: Login,
 
             ),
             const SizedBox(height: 25),
