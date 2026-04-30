@@ -23,7 +23,7 @@ class MyCurrentLocation extends StatelessWidget {
               ),
       
               // drop down
-        ),
+         ),
               Icon(Icons.keyboard_arrow_down_rounded),
 
             ],
