@@ -14,24 +14,24 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: MyDrawer(),
       body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) =>[
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
           MySliverAppBar(
-            child:Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Divider(indent: 25,endIndent:25,color:Theme.of(context).colorScheme.secondary,
+                Divider(
+                  indent: 25,
+                  endIndent: 25,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
 
-                
                 // my current location
-
-
               ],
             ),
-            title:Text('title'),
-
+            title: Text('title'),
           ),
-        ]
+        ],
+        body: Text('data'),
       ),
     );
   }

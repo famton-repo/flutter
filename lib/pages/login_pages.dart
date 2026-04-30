@@ -10,23 +10,23 @@ class Login_page extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
 
 // login method
-void Login() {
-  if (emailController.text == "[EMAIL_ADDRESS]" && passwordController.text == "123456") {
-    print("Login Success");
-  } else {
-    print("Login Failed");
+  void Login(BuildContext context) {
+    navigateToHomePage(context);
+    if (emailController.text == "[EMAIL_ADDRESS]" &&
+        passwordController.text == "123456") {
+      print("Login Success");
+    } else {
+      print("Login Failed");
+    }
   }
-}
- // navigate to home page
- void navigateToHomePage(BuildContext context) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
-} 
 
- Login_page({
-  super.key,
- required this.onTap
- }
- );
+  // navigate to home page
+  void navigateToHomePage(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const HomePage()));
+  }
+
+  Login_page({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -66,28 +66,25 @@ void Login() {
             const SizedBox(height: 25),
             MyButton(
               text: "sign in",
-              onTap: Login,
-
+              onTap: () => Login(context),
             ),
             const SizedBox(height: 25),
-            Row(
-              mainAxisAlignment:MainAxisAlignment.center,
-              children:[
-                Text("Not a member?",style: TextStyle(
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                "Not a member?",
+                style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
-                ),
-         const SizedBox(width: 4),
-                Text("Register now",
+              ),
+              const SizedBox(width: 4),
+              Text(
+                "Register now",
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                   fontWeight: FontWeight.bold,
                 ),
-                )
-              ]
-
-
-            ),
+              )
+            ]),
             //message
           ],
         ),
