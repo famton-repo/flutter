@@ -24,7 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
         children:[
           Container(
             decoration: 
-            BoxDecoration(color: Theme.of(context).colorScheme.secondary,
+    BoxDecoration(color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(12), 
             ),
             
@@ -42,7 +42,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ],
             ), 
-          ), 
+          ),
         ],
       )
     );
