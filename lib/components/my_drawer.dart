@@ -1,3 +1,4 @@
+import 'package:famton_app/pages/Settings%20_page.dart';
 import 'package:flutter/material.dart';
 
 import 'my _drawer _tile.dart';
@@ -25,15 +26,28 @@ class MyDrawer extends StatelessWidget {
             child: Divider(color: Theme.of(context).colorScheme.secondary),
           ),
           //home list tile
-          MyDrawerTile(icon: Icons.home, text: "H O M E", onTap: () {}),
+          MyDrawerTile(
+            icon: Icons.home,
+            text: "H O M E",
+            onTap: () => Navigator.pop(context),
+          ),
           //setting list tile
           MyDrawerTile(
             icon: Icons.settings,
             text: "S E T T I N G S",
-            onTap: () {},
+            onTap: () => {
+              // Navigator.pop(context).then(
+              //   Navigator.push(
+              //     context,
+              //     MaterialPageRoute(builder: (context) => SettingsPage()),
+              //   ),
+              // ),
+            },
           ),
-
+          const Spacer(),
           //logout list tile
+          MyDrawerTile(icon: Icons.logout, text: "L O G O U T", onTap: () {}),
+          const SizedBox(height: 25),
         ],
       ),
     );
