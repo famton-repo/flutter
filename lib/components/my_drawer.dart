@@ -1,4 +1,4 @@
-import 'package:famton_app/pages/Settings%20_page.dart';
+import 'package:famton_app/pages/Settings _page.dart';
 import 'package:flutter/material.dart';
 
 import 'my _drawer _tile.dart';
@@ -35,13 +35,12 @@ class MyDrawer extends StatelessWidget {
           MyDrawerTile(
             icon: Icons.settings,
             text: "S E T T I N G S",
-            onTap: () => {
-              // Navigator.pop(context).then(
-              //   Navigator.push(
-              //     context,
-              //     MaterialPageRoute(builder: (context) => SettingsPage()),
-              //   ),
-              // ),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsPage()),
+              );
             },
           ),
           const Spacer(),
