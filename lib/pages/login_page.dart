@@ -1,7 +1,7 @@
 import 'package:famton_app/components/my_button.dart';
 import 'package:famton_app/components/my_textfiled.dart';
+import 'package:famton_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback onTap;
