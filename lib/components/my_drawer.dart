@@ -20,39 +20,39 @@ class MyDrawer extends StatelessWidget {
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
           ),
-          Padding(padding:const EdgeInsets.all(25.0),
-          child: Divider(
-            color: Theme.of(context).colorScheme.secondary,
-            thickness: 1,
-          ) 
-          ),
+          Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Divider(
+                color: Theme.of(context).colorScheme.secondary,
+                thickness: 1,
+              )),
           // home list tile
           MyDrawerTile(
             icon: Icon(Icons.home),
-             text: "H O M E", 
-             onTap: () =>Navigator.pop(context),
-            ),
-             const SizedBox(height: 10),
-             MyDrawerTile(
+            text: "H O M E",
+            onTap: () => Navigator.pop(context),
+          ),
+          const SizedBox(height: 10),
+          MyDrawerTile(
             icon: Icon(Icons.settings),
-             text: "S E T T I N G S", 
-             onTap: (){
-     Navigator.pop(context);
-     Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsPage()));
-             },
-             ),
-      const Spacer(),
+            text: "S E T T I N G S",
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SettingsPage()));
+            },
+          ),
+          const Spacer(),
 
-      MyDrawerTile(
+          MyDrawerTile(
             icon: Icon(Icons.logout),
-             text: "L O G O U T", 
-             onTap: (){
+            text: "L O G O U T",
+            onTap: () {},
+          ),
 
-             },),
-
-       const SizedBox(height: 25),   
-          
-          
+          const SizedBox(height: 25),
         ],
       ),
     );
