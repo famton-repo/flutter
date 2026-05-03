@@ -16,14 +16,16 @@ class MyTabBar extends StatelessWidget {
         tabs: [
           // 1st tab
           Tab(
-  icon:Icon(Icons.home),
-  
+            icon: Icon(Icons.home),
           ),
           // 2nd tab
           Tab(
-          icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings),
           ),
-          
+          // 3nd tab
+          Tab(
+            icon: Icon(Icons.person),
+          ),
         ],
       ),
     );

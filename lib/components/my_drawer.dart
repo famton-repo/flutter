@@ -1,4 +1,5 @@
 import 'package:famton_app/components/my_drawer_title.dart';
+import 'package:famton_app/pages/home_page.dart';
 import 'package:famton_app/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
@@ -30,8 +31,14 @@ class MyDrawer extends StatelessWidget {
           MyDrawerTile(
             icon: Icon(Icons.home),
             text: "H O M E",
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+            },
           ),
+          // setting tile
+
           const SizedBox(height: 10),
           MyDrawerTile(
             icon: Icon(Icons.settings),
@@ -45,11 +52,13 @@ class MyDrawer extends StatelessWidget {
             },
           ),
           const Spacer(),
-
+// logout list title
           MyDrawerTile(
             icon: Icon(Icons.logout),
             text: "L O G O U T",
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
 
           const SizedBox(height: 25),
