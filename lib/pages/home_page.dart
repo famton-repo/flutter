@@ -5,7 +5,7 @@ import 'package:famton_app/pages/menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:famton_app/components/my_drawer.dart';
 import 'package:famton_app/components/my_sliver_app.dart';
-import 'package:famton_app/pages/settings_page.dart';
+import 'package:famton_app/components/settings_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
