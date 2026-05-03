@@ -1,4 +1,5 @@
 import 'package:famton_app/components/my_tab_bar.dart';
+import 'package:famton_app/models/food.dart';
 import 'package:flutter/material.dart';
 
 import '../components/my_current_location.dart';
@@ -21,13 +22,21 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(
+      length: FoodCategory.values.length,
+      vsync: this,
+    );
   }
 
   @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
+  }
+
+  //sort out and return a list of food items that belong to a specific category
+  List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fulMenu) {
+    return fulMenu.where((food) => food.category == category).toList();
   }
 
   @override

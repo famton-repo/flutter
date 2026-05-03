@@ -219,123 +219,157 @@ class Restaurant {
       ],
     ),
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Cheese cake ",
+      imagePath: "lib/images/desserts/cheesecake_dessert.png",
+      price: '6.99',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "A rich, fudgy chocolate brownie baked to perfection and drizzled with warm chocolate sauce. A decadent treat for chocolate lovers.",
+      category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Staberry topping", price: '0.99'),
+        Addon(name: "blueberry compote", price: '1.49'),
+        Addon(name: "Chocolate chips", price: '1.99'),
       ],
     ),
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Apple Pie",
+      imagePath: "lib/images/desserts/apple_pie_dessert.png",
+      price: '5.49',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "A flaky pastry filled with tender, cinnamon-spiced apples, baked to golden-brown perfection. A timeless classic served warm.",
+      category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Caramel sauce", price: '0.99'),
+        Addon(name: "Vannila ice cream", price: '1.99'),
+        Addon(name: "Cinnamon spice", price: '2.99'),
       ],
     ),
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Red Velvet Lava Cake",
+      imagePath: "lib/images/desserts/redvelvet_lava_dessert.png",
+      price: '5.49',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "Indulge in our decadent Red Velvet Lava Cake, featuring a moist, velvety red velvet cake with a molten chocolate center that flows out with every bite. Topped with a dusting of powdered sugar and served with a dollop of fresh whipped cream. A perfect ending to any meal!",
+      category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Roseberry sauce", price: '0.99'),
+        Addon(name: "Cream Cheese icing", price: '1.99'),
+        Addon(name: "Chocolate Sprinkles", price: '2.99'),
       ],
     ),
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Flooda",
+      imagePath: "lib/images/desserts/flooda_dessert.png",
+      price: '5.49',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "Indulge in our decadent Red Velvet Lava Cake, featuring a moist, velvety red velvet cake with a molten chocolate center that flows out with every bite. Topped with a dusting of powdered sugar and served with a dollop of fresh whipped cream. A perfect ending to any meal!",
+      category: FoodCategory.desserts,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Roseberry sauce", price: '0.99'),
+        Addon(name: "Cream Cheese icing", price: '1.99'),
+        Addon(name: "Chocolate Sprinkles", price: '2.99'),
       ],
     ),
 
     //drinks
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Lemonade",
+      imagePath: "lib/images/drinks/lemonade_drink.png",
+      price: '2.99',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "A refreshing lemonade made with fresh lemons and a hint of sweetness",
+      category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Strawberry Flavor", price: '0.99'),
+        Addon(name: "Mint Leaves", price: '1.49'),
+        Addon(name: "Ginger Zest", price: '1.99'),
       ],
     ),
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Iced Tea",
+      imagePath: "lib/images/drinks/iced_tea_drink.png",
+      price: '2.99',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "A refreshing iced tea made with fresh lemons and a hint of sweetness",
+      category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Peach Flavor", price: '0.99'),
+        Addon(name: "Lemon Slices", price: '1.49'),
+        Addon(name: "Honey", price: '1.99'),
       ],
     ),
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Smoothie",
+      imagePath: "lib/images/drinks/smoothie_drink.png",
+      price: '4.49',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "A refreshing smoothie made with fresh fruits and a hint of sweetness",
+      category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Protein Powder", price: '0.99'),
+        Addon(name: "Almond Mix", price: '1.49'),
+        Addon(name: "Chia Seeds", price: '1.99'),
       ],
     ),
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Mojito",
+      imagePath: "lib/images/drinks/mojito_drink.png",
+      price: '4.99',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "A classic mojito with fresh mint, lime, and a hint of sweetness",
+      category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Extra Mint", price: '0.99'),
+        Addon(name: "Raspberry Puree", price: '1.49'),
+        Addon(name: "Splash of cocount Rum", price: '2.99'),
       ],
     ),
     Food(
-      name: "Classic Chesseburger",
-      imagePath: "lib/images/burger/cheese_burger.png",
-      price: '0.99',
+      name: "Caramel Macciato",
+      imagePath: "lib/images/drinks/caramel_macciato_drink.png",
+      price: '4.99',
       description:
-          "A juicy beef patty with melted chedder, lettuce, tomato,and a hint oninon and pickle",
-      category: FoodCategory.burgers,
+          "Indulge in our Caramel Macchiato, a decadent blend of rich espresso, steamed milk, and luxurious caramel sauce. Topped with a velvety layer of whipped cream and a delicate drizzle of caramel for the perfect sweet finish.",
+      category: FoodCategory.drinks,
       availableAddons: [
-        Addon(name: "Extra cheese", price: '0.99'),
-        Addon(name: "Bacon", price: '1.99'),
-        Addon(name: "Avocado", price: '2.99'),
+        Addon(name: "Extra shot of Espresso", price: '0.99'),
+        Addon(name: "Hazelnut Syrup", price: '1.49'),
+        Addon(name: "Whipped Cream", price: '1.99'),
       ],
     ),
   ];
+  /*
+
+G E T T E R S
+
+*/
+  List<Food> get menu => _menu;
+
+  /*
+
+O P E R A T I O N S
+
+*/
+  // add a cart
+
+  // remove from cart
+
+  // get total price of cart
+
+  // get total number of items in cart
+
+  // clear cart
+
+  /*
+
+H E L P E R S
+  
+
+*/
+
+  // generate a receipt
+
+  // format double value into money
+
+  // format list of addons into a string summary
 }
