@@ -56,17 +56,12 @@ class _FoodPageState extends State<FoodPage> {
           Expanded(
             child: Stack(
               children: [
-                // Placeholder image (replace with Image.asset when images added)
-                Container(
+                // Food image
+                Image.asset(
+                  widget.food.imagePath,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.secondary,
-                  ),
-                  child: Icon(
-                    Icons.fastfood,
-                    size: 120,
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  ),
+                  height: 300,
+                  fit: BoxFit.cover,
                 ),
 
                 // Back button

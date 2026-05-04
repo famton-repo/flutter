@@ -13,7 +13,7 @@ class Restaurant extends ChangeNotifier {
       name: "Classic Burger",
       description:
           "A juicy beef patty with fresh lettuce, tomato, and our secret sauce.",
-      imagePath: "lib/images/burgers/classic_burger.png",
+      imagePath: "lib/images/burgers/cheese burger.jpg",
       price: 8.99,
       category: FoodCategory.burgers,
       avilableAddons: [
@@ -26,7 +26,7 @@ class Restaurant extends ChangeNotifier {
       name: "BBQ Bacon Burger",
       description:
           "Smoky BBQ sauce, crispy bacon, cheddar cheese and caramelised onions.",
-      imagePath: "lib/images/burgers/bbq_bacon_burger.png",
+      imagePath: "lib/images/burgers/bbq_burger.png",
       price: 11.49,
       category: FoodCategory.burgers,
       avilableAddons: [
@@ -39,7 +39,7 @@ class Restaurant extends ChangeNotifier {
       name: "Veggie Burger",
       description:
           "A plant-based patty with roasted peppers, spinach and vegan mayo.",
-      imagePath: "lib/images/burgers/veggie_burger.png",
+      imagePath: "lib/images/burgers/vege_burger.jpg",
       price: 9.49,
       category: FoodCategory.burgers,
       avilableAddons: [
@@ -48,12 +48,12 @@ class Restaurant extends ChangeNotifier {
       ],
     ),
 
-    // S A L A D S
+    // Salads
     Food(
       name: "Caesar Salad",
       description:
           "Crisp romaine, parmesan shavings, croutons and Caesar dressing.",
-      imagePath: "lib/images/salads/caesar_salad.png",
+      imagePath: "lib/images/salads/caosar_salad.jpg",
       price: 7.99,
       category: FoodCategory.salads,
       avilableAddons: [
@@ -65,7 +65,7 @@ class Restaurant extends ChangeNotifier {
       name: "Greek Salad",
       description:
           "Tomatoes, cucumbers, olives, red onion and feta with olive oil.",
-      imagePath: "lib/images/salads/greek_salad.png",
+      imagePath: "lib/images/salads/greek_salad.jpg",
       price: 8.49,
       category: FoodCategory.salads,
       avilableAddons: [
@@ -78,7 +78,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "French Fries",
       description: "Golden crispy fries with sea salt.",
-      imagePath: "lib/images/sides/fries.png",
+      imagePath: "lib/images/sides/loaded_fries_side.png",
       price: 3.49,
       category: FoodCategory.sides,
       avilableAddons: [
@@ -89,7 +89,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Onion Rings",
       description: "Beer-battered onion rings served with dipping sauce.",
-      imagePath: "lib/images/sides/onion_rings.png",
+      imagePath: "lib/images/sides/onion_rings_side.png",
       price: 4.49,
       category: FoodCategory.sides,
       avilableAddons: [
@@ -101,7 +101,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Chocolate Lava Cake",
       description: "Warm chocolate cake with a gooey molten centre.",
-      imagePath: "lib/images/desserts/lava_cake.png",
+      imagePath: "lib/images/desserts/red_valvet_lava_cake_dessert.webp",
       price: 5.99,
       category: FoodCategory.desserts,
       avilableAddons: [
@@ -112,7 +112,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Cheesecake",
       description: "New York–style cheesecake with a buttery biscuit base.",
-      imagePath: "lib/images/desserts/cheesecake.png",
+      imagePath: "lib/images/desserts/cheese_cake_dessert.jpg",
       price: 5.49,
       category: FoodCategory.desserts,
       avilableAddons: [
@@ -125,7 +125,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Fresh Lemonade",
       description: "Hand-squeezed lemonade with a hint of mint.",
-      imagePath: "lib/images/drinks/lemonade.png",
+      imagePath: "lib/images/drinks/lemonade_drink.png",
       price: 2.99,
       category: FoodCategory.drinks,
       avilableAddons: [
@@ -136,7 +136,7 @@ class Restaurant extends ChangeNotifier {
     Food(
       name: "Mango Smoothie",
       description: "Blended mango, banana, and coconut milk.",
-      imagePath: "lib/images/drinks/mango_smoothie.png",
+      imagePath: "lib/images/drinks/smoothie_drink.webp",
       price: 3.99,
       category: FoodCategory.drinks,
       avilableAddons: [

@@ -3,6 +3,7 @@ import 'package:famton_app/components/my_description_box.dart';
 import 'package:famton_app/components/my_drawer.dart';
 import 'package:famton_app/components/my_sliver_app.dart';
 import 'package:famton_app/components/my_tab_bar.dart';
+import 'package:famton_app/components/my_food_title.dart';
 import 'package:famton_app/models/food.dart';
 import 'package:famton_app/models/restaurant.dart';
 import 'package:famton_app/pages/cart_page.dart';
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage>
               padding: const EdgeInsets.all(12),
               itemCount: items.length,
               itemBuilder: (context, index) =>
-                  _FoodCard(food: items[index]),
+                  MyFoodTile(food: items[index]),
             );
           }).toList(),
         ),
@@ -94,102 +95,6 @@ class _HomePageState extends State<HomePage>
   }
 }
 
-// ── Food card ────────────────────────────────────────────────────────────────
-
-class _FoodCard extends StatelessWidget {
-  final Food food;
-  const _FoodCard({required this.food});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_) => FoodPage(food: food)),
-      ),
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary.withOpacity(0.12),
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Row(
-          children: [
-            // Food icon placeholder
-            Container(
-              width: 90,
-              height: 90,
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary.withOpacity(0.3),
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(16),
-                  bottomLeft: Radius.circular(16),
-                ),
-              ),
-              child: Icon(
-                Icons.fastfood,
-                size: 40,
-                color: Theme.of(context).colorScheme.inversePrimary,
-              ),
-            ),
-
-            // Details
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      food.name,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      food.description,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      '\$${food.price.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-
-            // Add button
-            Padding(
-              padding: const EdgeInsets.only(right: 12),
-              child: CircleAvatar(
-                radius: 18,
-                backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-                child: Icon(
-                  Icons.add,
-                  color: Theme.of(context).colorScheme.background,
-                  size: 20,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 // ── Cart FAB ─────────────────────────────────────────────────────────────────
 
