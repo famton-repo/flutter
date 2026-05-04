@@ -1,6 +1,7 @@
 import 'food.dart';
+import 'package:flutter/foundation.dart';
 
-class Restaurant {
+class Restaurant extends ChangeNotifier {
   //list of food menu
   final List<Food> _menu = [
     //burger

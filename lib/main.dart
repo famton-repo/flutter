@@ -1,12 +1,19 @@
 import 'package:famton_app/auth/login_or_register.dart';
+import 'package:famton_app/models/restaurant.dart';
 import 'package:famton_app/themes/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    MultiProvider(
+      providers: [
+        //theme provider
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+
+        //restaurant provider
+        ChangeNotifierProvider(create: (context) => Restaurant()),
+      ],
       child: const MyApp(),
     ),
   );

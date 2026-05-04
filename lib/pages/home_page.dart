@@ -1,6 +1,10 @@
+import 'package:famton_app/components/my_food_tile.dart';
 import 'package:famton_app/components/my_tab_bar.dart';
 import 'package:famton_app/models/food.dart';
+import 'package:famton_app/models/restaurant.dart';
+import 'package:famton_app/pages/food_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../components/my_current_location.dart';
 import '../components/my_description_box.dart';
@@ -39,6 +43,32 @@ class _HomePageState extends State<HomePage>
     return fulMenu.where((food) => food.category == category).toList();
   }
 
+  // return list of foods in given category
+  List<Widget> getFoodInThisCategory(List<Food> fulMenu) {
+    return FoodCategory.values.map((category) {
+      //get category menu
+      List<Food> categoryMenu = _filterMenuByCategory(category, fulMenu);
+      return ListView.builder(
+        itemCount: categoryMenu.length,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
+        itemBuilder: (context, index) {
+          //get individual food
+          final food = categoryMenu[index];
+
+          //return food tile UI
+          return MyFoodTile(
+            food: food,
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FoodPage(food: food)),
+            ),
+          );
+        },
+      );
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,22 +95,11 @@ class _HomePageState extends State<HomePage>
             ),
           ),
         ],
-        body: TabBarView(
-          controller: _tabController,
-          children: [
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("first tab items"),
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("second tab items"),
-            ),
-            ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Text("third tab items"),
-            ),
-          ],
+        body: Consumer<Restaurant>(
+          builder: (context, restaurant, child) => TabBarView(
+            controller: _tabController,
+            children: getFoodInThisCategory(restaurant.menu),
+          ),
         ),
       ),
     );
