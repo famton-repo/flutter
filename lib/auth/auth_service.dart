@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 /// A simple authentication service that holds the current user's state.
 /// Uses [ValueNotifier] so [AuthGate] can rebuild reactively on login/logout.

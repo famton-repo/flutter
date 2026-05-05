@@ -85,8 +85,7 @@ class _HomePageState extends State<HomePage>
             return ListView.builder(
               padding: const EdgeInsets.all(12),
               itemCount: items.length,
-              itemBuilder: (context, index) =>
-                  MyFoodTile(food: items[index]),
+              itemBuilder: (context, index) => MyFoodTile(food: items[index]),
             );
           }).toList(),
         ),
@@ -94,7 +93,6 @@ class _HomePageState extends State<HomePage>
     );
   }
 }
-
 
 // ── Cart FAB ─────────────────────────────────────────────────────────────────
 
@@ -112,11 +110,12 @@ class _CartFab extends StatelessWidget {
       icon: Badge(
         isLabelVisible: itemCount > 0,
         label: Text('$itemCount'),
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         child: const Icon(Icons.shopping_cart_outlined),
       ),
       label: const Text('Cart'),
       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      foregroundColor: Theme.of(context).colorScheme.background,
-    );
+      foregroundColor: Theme.of(context).colorScheme.secondary,
+    ); 
   }
 }
