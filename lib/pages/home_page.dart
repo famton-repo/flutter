@@ -1,3 +1,4 @@
+import 'package:famton_app/components/my_current_location.dart';
 import 'package:famton_app/components/my_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:famton_app/components/my_silver_app_bar.dart';
@@ -16,7 +17,23 @@ class _HomePageState extends State<HomePage> {
       drawer: MyDrawer(),
       body: NestedScrollView(
         headerSliverBuilder: (context, inerBoxIsScrolled) => [
-          MySilverAppBar(child: Text("Hello"), title: Text("title")),
+          MySilverAppBar(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Divider(
+                  indent: 25,
+                  endIndent: 25,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+                //my current location
+                MyCurrentLocation(),
+
+                //description box
+              ],
+            ),
+            title: Text("title"),
+          ),
         ],
         body: Container(color: Colors.blue),
       ),
